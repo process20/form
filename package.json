@@ -1,0 +1,9 @@
+{
+  "name": "Form",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./backend/index",
+    "build": "npm install --prefix ./backend && npm install --prefix ./frontend && npm run build --prefix ./frontend"
+  }
+}
