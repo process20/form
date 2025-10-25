@@ -3,8 +3,12 @@ const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const formRoutes = require('./routes/formRoutes');
+import path from 'path'
+import { fileURLToPath } from "url";
 
 const app = express();
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename);
 
 // Connect to MongoDB
 connectDB();
