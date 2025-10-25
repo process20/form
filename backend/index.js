@@ -1,11 +1,12 @@
-require('dotenv').config();
+const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
 const formRoutes = require('./routes/formRoutes');
-import path from 'path'
-import { fileURLToPath } from "url";
+const path  = require ('path')
+const { fileURLToPath } = require("url");
 
+dotenv.config()
 const app = express();
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
