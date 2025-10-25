@@ -19,7 +19,7 @@ router.post('/submit', async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: 'Form submitted successfully',
+      message: 'تم التسجيل بنجاح',
       data: savedData
     });
   } catch (error) {
@@ -28,7 +28,7 @@ router.post('/submit', async (req, res) => {
       const messages = Object.values(error.errors).map(err => err.message);
       return res.status(400).json({
         success: false,
-        message: 'Validation Error',
+        message: 'خطأ, يرجى إعادة ملئ البيانات بشكل صحيح',
         errors: messages
       });
     }
@@ -69,7 +69,7 @@ router.get('/download/:id', async (req, res) => {
     if (!formData) {
       return res.status(404).json({
         success: false,
-        message: 'Form submission not found'
+        message: 'إستمارة التسجيل غير موجودة'
       });
     }
 
@@ -81,7 +81,7 @@ router.get('/download/:id', async (req, res) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: 'Error downloading submission',
+      message: 'خطأ في تحميل الإستمارة',
       error: error.message
     });
   }
