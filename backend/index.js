@@ -31,6 +31,12 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
+// Serve static files from the React/Vite app
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
+
+// Handle React routing, return all requests to React app
+app.get('*', (req, res) => { res.sendFile(path.join(__dirname, '../frontend/dist/index.html'))});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
